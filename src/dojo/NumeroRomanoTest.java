@@ -60,8 +60,39 @@ public class NumeroRomanoTest {
 
         assertEquals(3000, retorno);
     }
+    
+    @Test
+    public void para_LXXIX_deveRetornar_79() {
+        String entrada = "LXXIX";
+
+        int retorno = NumeroRomano.converter(entrada);
+
+        assertEquals(79, retorno);
+    }
 
 
+    @Test
+    public void para_CCXXV_deveRetornar_255() {
+        String entrada = "CCXXV";
+        int retorno = NumeroRomano.converter(entrada);
+        assertEquals(225, retorno);
+    }
+    
+
+    @Test
+    public void para_CCXXV_deveRetornar_845() {
+        String entrada = "DCCCXLV";
+        int retorno = NumeroRomano.converter(entrada);
+        assertEquals(845, retorno);
+    }
+    
+    @Test
+    public void para_CDXLIV_deveRetornar_444() {
+        String entrada = "CDXLIV";
+        int retorno = NumeroRomano.converter(entrada);
+        assertEquals(444, retorno);
+    }
+    
     static class NumeroRomano {
     	
     	
