@@ -77,37 +77,63 @@ public class NumeroRomanoTest {
         	      	
             int valor = 0;
             int valorAtual = 0;
-            int aux = 0;
-            Integer valorAnterior = 0;
-            Integer tamanhoEntrada = entrada.length();
+            int auxValue = 0;
+            int valorAnterior = 0;
+            int tamanhoEntrada = entrada.length();
+            int valorProximo = 0;
+            int valorAcumulado = 0;
+            
             
             
             System.out.println("TAMANHO ENTRADA" + tamanhoEntrada);
             
-            if (entrada.length() > 1) {
-                for (int i = 0; i < tamanhoEntrada; i++){
+            if (entrada.length() > 0) {
+            	
+                for (int i = 0; i < tamanhoEntrada; i++){               	
+                	
+                	System.out.println(i);
                 	
                 	String caractereAtual = String.valueOf(entrada.charAt(i));
+                	valorAtual = NumRomanos.get(caractereAtual);
                 	System.out.println(NumRomanos.get(caractereAtual));
-                	
-                	
-                	
-//                	if(valorAtual > valorAnterior) {
-//                		
-//                	}
-                	
-                	valor += NumRomanos.get(caractereAtual);
-                	valorAnterior = NumRomanos.get(caractereAtual);
-                	System.out.println("ATUAL");
+                	Integer aux = i+1;
+                	System.out.println("aux " +aux);
+             	   
+             	  if(tamanhoEntrada - aux > 0) {// tem proximo ?
+             		   
+                	   String caractereProx = String.valueOf(entrada.charAt(aux));
+                	   valorProximo =  NumRomanos.get(caractereProx);
+                	   System.out.println("valor pro" + valorProximo);   
+                	   
+             	  
+		        	   if(valorProximo > valorAtual) {
+		        		   auxValue  += (valorProximo - valorAtual);
+		        		   i++;
+		        		   aux++;
+		        		   valorAcumulado += auxValue;
+		        		                   		   
+		            	}
+		        	   else if(valorProximo == valorAtual){
+		        		   valorAcumulado += valorAtual;
+		        		   valorAcumulado += valorProximo;
+		        		   aux++;
+		        		   i++;
+		        	   } else {
+		            		 valorAcumulado += valorAtual;
+		        	   }
+             	  }
+             	  else {
+             		 valorAcumulado += valorAtual;
+             	  }
                 }
                 
             }else {
 
             	System.out.println("GET STRING"+NumRomanos.get(entrada));
-            	valor = NumRomanos.get(entrada); 
+            	valorAcumulado += valorAtual; 
             }
 
-            return valor;
+            return valorAcumulado;
         }
     }
 
