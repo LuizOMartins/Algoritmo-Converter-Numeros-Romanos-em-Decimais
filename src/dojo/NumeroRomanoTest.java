@@ -87,10 +87,31 @@ public class NumeroRomanoTest {
     }
     
     @Test
-    public void para_CDXLIV_deveRetornar_444() {
+    public void para_CDXLIV_deveRetornar_444() { // COM ERRO -  TENTAR FAZER TRATAMENTO COM BOLLEAN
         String entrada = "CDXLIV";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(444, retorno);
+    }
+    
+    @Test
+    public void para_MMXXII_deveRetornar_2022() {
+        String entrada = "MMXXII";
+        int retorno = NumeroRomano.converter(entrada);
+        assertEquals(2022, retorno);
+    }
+    
+    @Test
+    public void para_MMCDLXVI_deveRetornar_2666() { // COM ERRO -  TENTAR FAZER TRATAMENTO COM BOLLEAN
+        String entrada = "MMCDLXVI";
+        int retorno = NumeroRomano.converter(entrada);
+        assertEquals(2666, retorno);
+    }
+    
+    @Test
+    public void para_MCMXCIX_deveRetornar_1999() { // COM ERRO -  TENTAR FAZER TRATAMENTO COM BOLLEAN
+        String entrada = "MCMXCIX";
+        int retorno = NumeroRomano.converter(entrada);
+        assertEquals(1999, retorno);
     }
     
     static class NumeroRomano {
@@ -106,22 +127,16 @@ public class NumeroRomanoTest {
         	NumRomanos.put("D", 500);
         	NumRomanos.put("M", 1000);
         	      	
-            int valor = 0;
             int valorAtual = 0;
             int auxValue = 0;
-            int valorAnterior = 0;
             int tamanhoEntrada = entrada.length();
             int valorProximo = 0;
             int valorAcumulado = 0;
             
-            
-            
             System.out.println("TAMANHO ENTRADA" + tamanhoEntrada);
             
             if (entrada.length() > 0) {
-            	
                 for (int i = 0; i < tamanhoEntrada; i++){               	
-                	
                 	System.out.println(i);
                 	
                 	String caractereAtual = String.valueOf(entrada.charAt(i));
@@ -141,8 +156,7 @@ public class NumeroRomanoTest {
 		        		   auxValue  += (valorProximo - valorAtual);
 		        		   i++;
 		        		   aux++;
-		        		   valorAcumulado += auxValue;
-		        		                   		   
+		        		   valorAcumulado += auxValue;              		   
 		            	}
 		        	   else if(valorProximo == valorAtual){
 		        		   valorAcumulado += valorAtual;
@@ -157,13 +171,10 @@ public class NumeroRomanoTest {
              		 valorAcumulado += valorAtual;
              	  }
                 }
-                
             }else {
-
             	System.out.println("GET STRING"+NumRomanos.get(entrada));
             	valorAcumulado += valorAtual; 
             }
-
             return valorAcumulado;
         }
     }
