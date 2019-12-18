@@ -87,7 +87,7 @@ public class NumeroRomanoTest {
     }
     
     @Test
-    public void para_CDXLIV_deveRetornar_444() { // COM ERRO
+    public void para_CDXLIV_deveRetornar_444() {
         String entrada = "CDXLIV";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(444, retorno);
@@ -108,7 +108,7 @@ public class NumeroRomanoTest {
     }
     
     @Test
-    public void para_MCMXCIX_deveRetornar_1999() { // COM ERRO
+    public void para_MCMXCIX_deveRetornar_1999() {
         String entrada = "MCMXCIX";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(1999, retorno);
@@ -132,6 +132,7 @@ public class NumeroRomanoTest {
             int tamanhoEntrada = entrada.length();
             int valorProximo = 0;
             int valorAcumulado = 0;
+            boolean checkProximo = false;
             
             System.out.println("TAMANHO ENTRADA" + tamanhoEntrada);
             
@@ -153,7 +154,7 @@ public class NumeroRomanoTest {
                 	   
              	  
 		        	   if(valorProximo > valorAtual) {
-		        		   auxValue  += (valorProximo - valorAtual);
+		        		   auxValue  = (valorProximo - valorAtual);
 		        		   i++;
 		        		   aux++;
 		        		   valorAcumulado += auxValue;              		   
