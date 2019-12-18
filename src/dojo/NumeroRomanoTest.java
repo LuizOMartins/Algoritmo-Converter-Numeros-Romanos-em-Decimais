@@ -87,7 +87,7 @@ public class NumeroRomanoTest {
     }
     
     @Test
-    public void para_CDXLIV_deveRetornar_444() { // COM ERRO -  TENTAR FAZER TRATAMENTO COM BOLLEAN
+    public void para_CDXLIV_deveRetornar_444() { // COM ERRO
         String entrada = "CDXLIV";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(444, retorno);
@@ -101,14 +101,14 @@ public class NumeroRomanoTest {
     }
     
     @Test
-    public void para_MMCDLXVI_deveRetornar_2666() { // COM ERRO -  TENTAR FAZER TRATAMENTO COM BOLLEAN
+    public void para_MMCDLXVI_deveRetornar_2666() { // COM ERRO
         String entrada = "MMCDLXVI";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(2666, retorno);
     }
     
     @Test
-    public void para_MCMXCIX_deveRetornar_1999() { // COM ERRO -  TENTAR FAZER TRATAMENTO COM BOLLEAN
+    public void para_MCMXCIX_deveRetornar_1999() { // COM ERRO
         String entrada = "MCMXCIX";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(1999, retorno);
