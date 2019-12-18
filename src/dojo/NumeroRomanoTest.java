@@ -101,8 +101,8 @@ public class NumeroRomanoTest {
     }
     
     @Test
-    public void para_MMCDLXVI_deveRetornar_2666() { // COM ERRO
-        String entrada = "MMCDLXVI";
+    public void para_MMDCLXVI_deveRetornar_2666() {
+        String entrada = "MMDCLXVI";
         int retorno = NumeroRomano.converter(entrada);
         assertEquals(2666, retorno);
     }
